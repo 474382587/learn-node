@@ -55,7 +55,6 @@ var server = http.createServer(function(req, res) {
         } else {
           res.write(data)
         }
-
         res.end()
       })
     }
