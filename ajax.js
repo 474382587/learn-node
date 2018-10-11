@@ -13,6 +13,7 @@
  * 4	DONE	The operation is complete.
  */
 
+ 
 // function ajax(params) {
 //   var request = new XMLHttpRequest()
 //   request.onreadystatechange = function() {
