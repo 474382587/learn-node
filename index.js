@@ -13,14 +13,12 @@ var myServer = http.createServer(function(request, response) {
   switch (request.url) {
     case '/1.html':
       response.write('1.html')
-      break;
+      break
     default:
       response.write('404')
-      break;
+      break
   }
 
-  
-  
   // end sending response
   response.end()
 })
@@ -29,11 +27,6 @@ var myServer = http.createServer(function(request, response) {
 myServer.listen(8082) // $param --> port number
 
 // 返回 response
-
-
-
-
-
 
 // read file
 /* 
