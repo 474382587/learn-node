@@ -2,21 +2,23 @@ var http = require('http')
 var fs = require('fs')
 var queryString = require('querystring')
 var urlLib = require('url')
-
+var users = {
+      user1: 'password1'
+    }
 var server = http.createServer(function(req, res) {
   var str = ''
+  
   req.on('data', function(data) {
     str += data
   })
   req.on('end', function() {
     var obj = urlLib.parse(req.url, true)
-    const url = obj.name
+    const url = obj.pathname
+    console.log(obj)
     const GET = obj.query
     const POST = queryString.parse(str)
 
-    var users = {
-      user1: 'password1'
-    }
+    
     if (url === './user') {
       switch (GET.act) {
         case 'reg':
@@ -45,7 +47,8 @@ var server = http.createServer(function(req, res) {
       res.end()
     } else {
       // read
-      var fileName = './www' + url
+      var fileName = './' + url
+      console.log(fileName)
       fs.readFile(fileName, function(err, data) {
         if (err) {
           res.write('404')
